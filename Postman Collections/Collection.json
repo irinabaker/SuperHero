@@ -291,7 +291,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "c88edc2e-cfe2-4b1f-9379-b62f0076bd5c",
+				"id": "8a6bb151-7225-402c-8cb3-8d13dc7e1e1a",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -302,11 +302,11 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "1cffafe7-8c0a-47bf-867b-dacc0a994b48",
+				"id": "6e5c8f19-01f3-4029-8159-7dfc94264c49",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					"pm.test(\"Response time is less than 700ms\", function () {\r",
+					"pm.test(\"Response time is less than 600ms\", function () {\r",
 					"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 					"});"
 				]
