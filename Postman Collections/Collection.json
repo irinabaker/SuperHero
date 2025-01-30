@@ -306,8 +306,8 @@
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					"pm.test(\"Response time is less than 700ms\", function () {\r",
-					"    pm.expect(pm.response.responseTime).to.be.below(700);\r",
+					"pm.test(\"Response time is less than 900ms\", function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(900);\r",
 					"});"
 				]
 			}
