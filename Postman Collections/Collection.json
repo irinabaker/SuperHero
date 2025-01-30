@@ -291,7 +291,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "8a6bb151-7225-402c-8cb3-8d13dc7e1e1a",
+				"id": "0030789d-c2e6-43cd-a56b-77454cb02688",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -302,7 +302,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "6e5c8f19-01f3-4029-8159-7dfc94264c49",
+				"id": "9b2d8868-7849-4254-b133-9834d4f49f14",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
