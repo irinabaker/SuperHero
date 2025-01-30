@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "a67bb767-20b2-4807-8c89-92fa3b836ad1",
+		"name": "QA41_SuperHero",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Positive",
+			"item": [
+				{
+					"name": "CreateSuperHero",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "20f274eb-9da4-40e9-8b3e-541851524ad6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// pm.test(\"Phone number equals to request body number\", function () {\r",
+									"//     var jsonData = pm.response.json();\r",
+									"//     pm.expect(jsonData.phone).to.eql(\"+74998884433\");\r",
+									"// });"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4bf298cf-b149-4362-a571-de039a07157f",
+								"exec": [],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "4cb4f179-1828-4ee1-86fc-1afb0b777a73",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"birthDate\": \"2019-02-21\",\r\n  \"city\": \"Berlin\",\r\n  \"fullName\": \"Hancock\",\r\n  \"gender\": \"M\",\r\n  \"mainSkill\": \"Magic\",\r\n  \"phone\": \"+74998884433\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURI}}/superheroes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all super heroes",
+					"id": "a2b1fe9e-08a2-4da5-8315-92cafb7e0934",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseURI}}/superheroes"
+					},
+					"response": []
+				}
+			],
+			"id": "84d76da0-bb83-405a-8853-cc8bf1fb097b"
+		},
+		{
+			"name": "Negative",
+			"item": [
+				{
+					"name": "CreateSuperHero with ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c49dd709-a360-4578-abf3-9e00aed7661a",
+								"exec": [
+									"// pm.test(\"Status code is 403\", function () {\r",
+									"//     pm.response.to.have.status(403);\r",
+									"// });\r",
+									"\r",
+									"// pm.test(\"Status code name has string - Forbidden\", function () {\r",
+									"//     pm.response.to.have.status(\"Forbidden\");\r",
+									"// });"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3912fc34-9578-43bd-a127-59d655a9b0e0",
+								"exec": [],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "aa0dc0af-e74e-4e7c-89e2-9734f498d565",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 264,\r\n  \"birthDate\": \"2019-02-21\",\r\n  \"city\": \"Berlin\",\r\n  \"fullName\": \"Hancock\",\r\n  \"gender\": \"M\",\r\n  \"mainSkill\": \"Magic\",\r\n  \"phone\": \"+74998884433\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURI}}/superheroes"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateSuperHero without birthDate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d37defc6-2e02-4edc-a56c-2da1359b5e13",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Message equals API message\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.message).to.eql(\"Incorrect request data\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Code equals API code\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.code).to.eql(\"BAD_REQUEST\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "7cac6f42-25f1-4c5e-b7c0-f40c39025b40",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"birthDate\": \"\",\r\n  \"city\": \"Berlin\",\r\n  \"fullName\": \"Hancock\",\r\n  \"gender\": \"M\",\r\n  \"mainSkill\": \"Magic\",\r\n  \"phone\": \"+74998884433\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURI}}/superheroes"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateSuperHero without city(bug)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0f13fdad-56f3-4398-89cf-9fb0784420d5",
+								"exec": [
+									"// pm.test(\"Status code is 403\", function () {\r",
+									"//     pm.response.to.have.status(403);\r",
+									"// });"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e63e8411-8c14-4e0f-8788-c4b0767437ee",
+								"exec": [],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "d824d03c-83e1-44d6-b68a-36e321a69b19",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"birthDate\": \"2019-02-21\",\r\n  \"city\": \"\",\r\n  \"fullName\": \"Hancock\",\r\n  \"gender\": \"M\",\r\n  \"mainSkill\": \"Magic\",\r\n  \"phone\": \"+74998884433\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseURI}}/superheroes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all super heroes with wrong endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3a2b859a-600a-4bb3-a252-53c538fbfe15",
+								"exec": [
+									"// pm.test(\"Status code is 403\", function () {\r",
+									"//     pm.response.to.have.status(403);\r",
+									"// });\r",
+									"\r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"var count = jsonData.length;\r",
+									"console.log(count);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "839e4e77-5881-444e-91c5-2cbbfa59941e",
+								"exec": [],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "6a09f51b-405a-46f6-98f4-8f371a8fdf9c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "superhero.qa-test.csssr.com/superheroes//"
+					},
+					"response": []
+				}
+			],
+			"id": "8681aca3-827b-454d-935e-ce296a682dc1"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c88edc2e-cfe2-4b1f-9379-b62f0076bd5c",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1cffafe7-8c0a-47bf-867b-dacc0a994b48",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"pm.test(\"Response time is less than 500ms\", function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+					"});"
+				]
+			}
+		}
+	]
+}
