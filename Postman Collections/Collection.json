@@ -23,7 +23,11 @@
 									"// pm.test(\"Phone number equals to request body number\", function () {\r",
 									"//     var jsonData = pm.response.json();\r",
 									"//     pm.expect(jsonData.phone).to.eql(\"+74998884433\");\r",
-									"// });"
+									"// });\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -33,8 +37,11 @@
 							"listen": "prerequest",
 							"script": {
 								"id": "4bf298cf-b149-4362-a571-de039a07157f",
-								"exec": [],
-								"type": "text/javascript"
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
